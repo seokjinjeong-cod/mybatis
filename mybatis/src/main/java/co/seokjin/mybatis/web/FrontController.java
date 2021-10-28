@@ -13,9 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.seokjin.mybatis.comm.Command;
 import co.seokjin.mybatis.command.HomeCommand;
-import co.seokjin.mybatis.command.MamberLoginForm;
 import co.seokjin.mybatis.command.MemberList;
 import co.seokjin.mybatis.command.MemberLogin;
+import co.seokjin.mybatis.command.MemberLoginForm;
+import co.seokjin.mybatis.command.MemberLogout;
 import co.seokjin.mybatis.command.MemberSelect;
 import co.seokjin.mybatis.command.NoticeList;
 
@@ -32,10 +33,11 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/home.do", new HomeCommand());
 		map.put("/memberList.do", new MemberList()); // 멤버리스트 가져오기
-		map.put("/memberSelect.do", new MemberSelect());
-		map.put("/noticeList.do", new NoticeList());
-		map.put("/memberLoginForm.do", new MamberLoginForm());
-		map.put("/memberLogin.do", new MemberLogin());
+		map.put("/memberSelect.do", new MemberSelect()); // 나의 정보
+		map.put("/noticeList.do", new NoticeList()); // 글목록
+		map.put("/memberLoginForm.do", new MemberLoginForm()); //로그인 폼
+		map.put("/memberLogin.do", new MemberLogin()); // 로그인
+		map.put("/memberLogout.do", new MemberLogout());
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

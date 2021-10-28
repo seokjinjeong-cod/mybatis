@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.seokjin.mybatis.comm.Command;
 
-public class MamberLoginForm implements Command {
+public class MemberLoginForm implements Command {
 
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
