@@ -8,11 +8,14 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	function CallEdit(str) {
+		document.getElementById("modPw").value = document.getElementById("password").value;
+		document.getElementById("modAuthor").value = document.getElementById("author").value;
 		if(str == 'E'){
 			frm.action = "memberEdit.do";
 		} else {
 			frm.action = "memberDelete.do";
 		}
+		frm.submit();
 	}
 </script>
 </head>
@@ -27,7 +30,7 @@
 			</tr>
 			<tr>
 				<th>패스워드</th>
-				<td><textarea id="id" name="id">${member.password }</textarea></td>
+				<td><textarea id="password" name="password">${member.password }</textarea></td>
 			</tr>
 			<tr>
 				<th>이 름</th>
@@ -43,7 +46,7 @@
 			</tr>
 			<tr>
 				<th>권한</th>
-				<td><textarea id="id" name="id">${member.author }</textarea></td>
+				<td><textarea id="author" name="author">${member.author }</textarea></td>
 			</tr>
 		</table>
 </div><br>
@@ -55,8 +58,8 @@
 <div>
 	<form id="frm" action="" method="post">
 		<input type="hidden" id="id" name="id" value="${member.id }">
-		<input type="hidden" id="modId" name="modId" value="">
 		<input type="hidden" id="modPw" name="modPw" value="">
+		<input type="hidden" id="modAuthor" name="modAuthor" value="">
 	</form>
 </div>
 </body>

@@ -10,16 +10,16 @@
 		select * from notice where nid = #{nid}
 	</select>
 	
-	<select id="noticeInsert" parameterType="co.seokjin.mybatis.notice.service.NoticeVO">
+	<insert id="noticeInsert" parameterType="co.seokjin.mybatis.notice.service.NoticeVO">
 		insert into notice values(b_seq.nextval,#{id},#{name},#{writeDate},#{title},#{contents},#{hit})
-	</select>
+	</insert>
 	
-	<select id="noticeUpdate" parameterType="co.seokjin.mybatis.notice.service.NoticeVO">
+	<update id="noticeUpdate" parameterType="co.seokjin.mybatis.notice.service.NoticeVO">
 		update notice set title = #{title}, contents = #{contents} where nid = #{nid}
-	</select>
+	</update>
 	
-	<select id="noticeDelete" parameterType="co.seokjin.mybatis.notice.service.NoticeVO">
+	<delete id="noticeDelete" parameterType="co.seokjin.mybatis.notice.service.NoticeVO">
 		delete from notice where nid = #{nid}
-	</select>
+	</delete>
 
 </mapper>

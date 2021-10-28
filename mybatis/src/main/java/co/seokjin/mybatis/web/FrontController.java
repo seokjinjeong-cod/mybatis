@@ -13,12 +13,15 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.seokjin.mybatis.comm.Command;
 import co.seokjin.mybatis.command.HomeCommand;
+import co.seokjin.mybatis.command.MemberEdit;
 import co.seokjin.mybatis.command.MemberList;
 import co.seokjin.mybatis.command.MemberLogin;
 import co.seokjin.mybatis.command.MemberLoginForm;
 import co.seokjin.mybatis.command.MemberLogout;
 import co.seokjin.mybatis.command.MemberSelect;
+import co.seokjin.mybatis.command.NoticeEdit;
 import co.seokjin.mybatis.command.NoticeList;
+import co.seokjin.mybatis.command.NoticeSelect;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -31,13 +34,16 @@ public class FrontController extends HttpServlet {
     }
 
 	public void init(ServletConfig config) throws ServletException {
-		map.put("/home.do", new HomeCommand());
+		map.put("/home.do", new HomeCommand());	//홈페이지
 		map.put("/memberList.do", new MemberList()); // 멤버리스트 가져오기
 		map.put("/memberSelect.do", new MemberSelect()); // 나의 정보
 		map.put("/noticeList.do", new NoticeList()); // 글목록
 		map.put("/memberLoginForm.do", new MemberLoginForm()); //로그인 폼
 		map.put("/memberLogin.do", new MemberLogin()); // 로그인
-		map.put("/memberLogout.do", new MemberLogout());
+		map.put("/memberLogout.do", new MemberLogout()); //로그아웃
+		map.put("/noticeEdit.do", new NoticeEdit()); // 글 수정
+		map.put("/noticeSelect.do", new NoticeSelect()); //글상세보기
+		map.put("/memberEdit.do", new MemberEdit());  //내정보 수정
 	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

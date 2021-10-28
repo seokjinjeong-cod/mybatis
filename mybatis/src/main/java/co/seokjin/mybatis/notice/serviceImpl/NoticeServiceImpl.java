@@ -9,7 +9,7 @@ import co.seokjin.mybatis.notice.service.NoticeMapper;
 import co.seokjin.mybatis.notice.service.NoticeService;
 import co.seokjin.mybatis.notice.service.NoticeVO;
 
-public class NoticeServcieImpl implements NoticeService {
+public class NoticeServiceImpl implements NoticeService {
 	private SqlSession sqlSession = DataSource.getInstance().openSession(true);
 	private NoticeMapper map = sqlSession.getMapper(NoticeMapper.class);
 	
