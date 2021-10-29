@@ -20,6 +20,9 @@
 </script>
 </head>
 <body>
+<%
+	String name = (String)session.getAttribute("name");
+%>
 <div align="center">
 	<div><h1>공지사항 조회</h1></div>
 	<div>
@@ -50,8 +53,10 @@
 	</div><br>
 	<div>
 		<button type="button" onclick="location.href='noticeList.do'">목록</button> &nbsp;&nbsp;&nbsp;
-		<button type="button" onclick="CallEdit('E')">수정</button> &nbsp;&nbsp;&nbsp;
-		<button type="button" onclick="CallEdit('D')">삭제</button>
+		<c:if test="${notice.name == name}">
+			<button type="button" onclick="CallEdit('E')">수정</button> &nbsp;&nbsp;&nbsp;
+			<button type="button" onclick="CallEdit('D')">삭제</button>
+		</c:if>
 	</div>
 	<div>
 		<form id="frm" action="" method="post">

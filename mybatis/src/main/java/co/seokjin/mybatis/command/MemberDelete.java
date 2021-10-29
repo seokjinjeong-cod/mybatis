@@ -9,31 +9,22 @@ import co.seokjin.mybatis.member.service.MemberService;
 import co.seokjin.mybatis.member.service.MemberVO;
 import co.seokjin.mybatis.member.serviceImpl.MemberServiceImpl;
 
-public class MemberLogin implements Command {
+public class MemberDelete implements Command {
 
 	@Override
 	public String run(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
+		session.invalidate();
 		MemberService memberDao = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
-		
-//		vo.setId(session.getAttribute("id")); 세션이 존재할때 세션값을 가져온다.
 		vo.setId(request.getParameter("id"));
-		vo.setPassword(request.getParameter("password"));
-		vo = memberDao.memberSelect(vo);
-		
+		int n = memberDao.memberDelete(vo);
 		String viewPage = null;
-		request.setAttribute("member", vo); //
-		
-		if(vo != null) {
-			request.setAttribute("message", vo.getName()+"님 환영합니다.");
-			session.setAttribute("id", vo.getId());
-			session.setAttribute("author", vo.getAuthor());
-			session.setAttribute("name", vo.getName());
-			viewPage = "member/memberSuccess";
+		if(n != 0) {
+			viewPage = "home.do";
 		} else {
-			request.setAttribute("message", "아이디 또는 패스워드가 틀렸습니다.");
-			viewPage = "member/memberFail"; 
+			request.setAttribute("message", "탈퇴 실패");
+			viewPage = "member/memberFail";
 		}
 		return viewPage;
 	}

@@ -12,7 +12,6 @@
 		frm.submit();
 	}
 </script>
-
 </head>
 <body>
 <jsp:include page="../home/header.jsp" />
@@ -41,8 +40,16 @@
 		</table>
 	</div><br>
 	<div>
-		<button type="button" onclick="location.href='noticeForm.do'">글쓰기</button> &nbsp;&nbsp;&nbsp;
-		<button type="button" onclick="location.href='home.do'">홈가기</button>
+		<form id="frmm" action="noticeSearch.do" method="post">
+			<button type="button" onclick="location.href='noticeForm.do'">글쓰기</button>
+			<select name="notice" id="noticeSearch">
+			    <option value="제목">제목</option>
+			    <option value="작성자">작성자</option>
+			</select>
+			<input type="text" id="search" name="search">
+			<button type="button" onclick="submit()">검색</button>
+			<button type="button" onclick="location.href='home.do'">홈가기</button>
+		</form>
 	</div>
 	<div> <!-- 숨겨져 있는 폼 -->
 		<form id="frm" action="noticeSelect.do" method="post">

@@ -16,7 +16,7 @@
 				<li><a class="active" href="home.do">Home</a></li>
 				<c:if test="${empty id }">
 					<li><a href="memberLoginForm.do">로그인</a></li>
-					<li><a href="#">회원가입</a></li>
+					<li><a href="memberJoinFrom.do">회원가입</a></li>
 				</c:if>
 				<c:if test="${not empty id }">
 					<li><a href="noticeList.do">공지사항</a></li>

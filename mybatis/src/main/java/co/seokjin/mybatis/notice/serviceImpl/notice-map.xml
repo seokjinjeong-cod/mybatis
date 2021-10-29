@@ -18,8 +18,20 @@
 		update notice set title = #{title}, contents = #{contents} where nid = #{nid}
 	</update>
 	
+	<update id="hitUpdate" parameterType="co.seokjin.mybatis.notice.service.NoticeVO">
+		Update notice set hit = hit+1 where nid = #{nid}
+	</update>
+	
 	<delete id="noticeDelete" parameterType="co.seokjin.mybatis.notice.service.NoticeVO">
 		delete from notice where nid = #{nid}
 	</delete>
+	
+	<select id="titleSearchList" resultType="co.seokjin.mybatis.notice.service.NoticeVO">
+		select * from notice where title like '%'||#{title}||'%'
+	</select>
+	
+	<select id="nameSearchList" resultType="co.seokjin.mybatis.notice.service.NoticeVO">
+		select * from notice where name like '%'||#{name}||'%'
+	</select>
 
 </mapper>
