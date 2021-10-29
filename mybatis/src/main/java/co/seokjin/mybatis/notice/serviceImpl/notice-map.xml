@@ -3,7 +3,7 @@
 <mapper namespace="co.seokjin.mybatis.notice.service.NoticeMapper">
 
 	<select id="noticeSelectList" resultType="co.seokjin.mybatis.notice.service.NoticeVO">
-		select * from notice
+		select * from notice order by nid asc
 	</select>
 	
 	<select id="noticeSelect" resultType="co.seokjin.mybatis.notice.service.NoticeVO">

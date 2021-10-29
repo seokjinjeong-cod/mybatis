@@ -53,7 +53,7 @@
 	</div><br>
 	<div>
 		<button type="button" onclick="location.href='noticeList.do'">목록</button> &nbsp;&nbsp;&nbsp;
-		<c:if test="${notice.name == name}">
+		<c:if test="${notice.name == name || member == 'ADMIN'}">
 			<button type="button" onclick="CallEdit('E')">수정</button> &nbsp;&nbsp;&nbsp;
 			<button type="button" onclick="CallEdit('D')">삭제</button>
 		</c:if>
