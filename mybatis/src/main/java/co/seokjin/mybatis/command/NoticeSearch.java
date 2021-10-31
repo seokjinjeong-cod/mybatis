@@ -20,7 +20,7 @@ public class NoticeSearch implements Command {
 			vo.setTitle(request.getParameter("search"));
 			request.setAttribute("notices", noticeDao.titleSearchList(vo));
 			
-		} else if(request.getParameter("notice").equals("작성자")) {	//제목으로 검색
+		} else if(request.getParameter("notice").equals("작성자")) {	//작성자로 검색
 			vo.setName(request.getParameter("search"));
 			request.setAttribute("notices", noticeDao.nameSearchList(vo));
 			
