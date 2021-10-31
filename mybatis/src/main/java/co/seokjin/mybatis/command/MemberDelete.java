@@ -21,7 +21,8 @@ public class MemberDelete implements Command {
 		int n = memberDao.memberDelete(vo);
 		String viewPage = null;
 		if(n != 0) {
-			viewPage = "home.do";
+			request.setAttribute("message", "회원탈퇴 성공");
+			viewPage = "member/memberSucess";
 		} else {
 			request.setAttribute("message", "탈퇴 실패");
 			viewPage = "member/memberFail";

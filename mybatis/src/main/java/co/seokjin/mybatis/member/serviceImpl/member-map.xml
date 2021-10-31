@@ -22,8 +22,13 @@
 	</update>
 
 	<delete id="memberDelete" parameterType="co.seokjin.mybatis.member.service.MemberVO">
-		delete from member where id = #{id}
+		{
+		call
+			begin
+				delete from member where id = #{id};
+				delete from notice where id = #{id};
+			end
+		}
 	</delete>
-
-
+	
 </mapper>

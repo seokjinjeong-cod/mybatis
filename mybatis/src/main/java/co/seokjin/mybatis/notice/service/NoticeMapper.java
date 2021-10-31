@@ -11,4 +11,5 @@ public interface NoticeMapper {
 	int hitUpdate(NoticeVO vo);
 	List<NoticeVO> titleSearchList(NoticeVO vo);
 	List<NoticeVO> nameSearchList(NoticeVO vo);
+
 }
