@@ -16,13 +16,17 @@ public class NoticeSearch implements Command {
 		NoticeVO vo = new NoticeVO();
 //		System.out.println(request.getParameter("notice"));
 //		System.out.println(request.getParameter("search"));
-		if(request.getParameter("notice").equals("제목")) {
+		if(request.getParameter("notice").equals("제목")) {	//제목으로 검색
 			vo.setTitle(request.getParameter("search"));
 			request.setAttribute("notices", noticeDao.titleSearchList(vo));
 			
-		} else if(request.getParameter("notice").equals("작성자")) {
+		} else if(request.getParameter("notice").equals("작성자")) {	//제목으로 검색
 			vo.setName(request.getParameter("search"));
 			request.setAttribute("notices", noticeDao.nameSearchList(vo));
+			
+		} else {
+			vo.setContents(request.getParameter("search"));	//내용으로 검색
+			request.setAttribute("notices", noticeDao.contentsSearchList(vo));
 		}
 		return "notice/noticeList";
 	}

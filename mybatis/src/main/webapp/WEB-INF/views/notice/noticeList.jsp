@@ -45,6 +45,7 @@
 			<select name="notice" id="noticeSearch">
 			    <option value="제목">제목</option>
 			    <option value="작성자">작성자</option>
+			    <option value="내용">내용</option>
 			</select>
 			<input type="text" id="search" name="search">
 			<button type="button" onclick="submit()">검색</button>

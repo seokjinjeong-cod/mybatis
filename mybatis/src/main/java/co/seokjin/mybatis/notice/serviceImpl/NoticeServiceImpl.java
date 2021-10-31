@@ -46,5 +46,9 @@ public class NoticeServiceImpl implements NoticeService {
 	public List<NoticeVO> nameSearchList(NoticeVO vo) {
 		return map.nameSearchList(vo);
 	}
+	@Override
+	public List<NoticeVO> contentsSearchList(NoticeVO vo) {
+		return map.contentsSearchList(vo);
+	}
 	
 }

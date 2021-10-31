@@ -33,5 +33,9 @@
 	<select id="nameSearchList" resultType="co.seokjin.mybatis.notice.service.NoticeVO">
 		select * from notice where name like '%'||#{name}||'%'
 	</select>
+	
+	<select id="contentsSearchList" resultType="co.seokjin.mybatis.notice.service.NoticeVO">
+		select * from notice where contents like '%'||#{contents}||'%'
+	</select>
 
 </mapper>

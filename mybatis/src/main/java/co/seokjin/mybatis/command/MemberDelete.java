@@ -22,7 +22,7 @@ public class MemberDelete implements Command {
 		String viewPage = null;
 		if(n != 0) {
 			request.setAttribute("message", "회원탈퇴 성공");
-			viewPage = "member/memberSucess";
+			viewPage = "member/memberSuccess";
 		} else {
 			request.setAttribute("message", "탈퇴 실패");
 			viewPage = "member/memberFail";
